@@ -1,6 +1,11 @@
 package metier;
 
-public class Telefilm {
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+//@DiscriminatorValue("Telefilm")
+public class Telefilm extends Film {
 
 	private String chaine;
 

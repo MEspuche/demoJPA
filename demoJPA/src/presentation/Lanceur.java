@@ -10,7 +10,10 @@ import javax.persistence.Persistence;
 
 import metier.Adresse;
 import metier.Contact;
+import metier.CourtMetrage;
 import metier.Film;
+import metier.LongMetrage;
+import metier.Telefilm;
 
 public class Lanceur {
 
@@ -30,20 +33,36 @@ public class Lanceur {
 			s.setNumRue("120 rue massena");
 			s.setCodePostal("69006");
 			
-			Film f = new Film();
-			f.setNomFilm("aaaaa");
+			
+			LongMetrage ml = new LongMetrage();
+			ml.setNomFilm("film1");
+			ml.setCinema("gaumont");
+			
+			CourtMetrage cm = new CourtMetrage();
+			cm.setNomFilm("film2court");
+			cm.setProduction("Canal+");
+			
+			Telefilm ts = new Telefilm();
+			ts.setChaine("tf1");
+			ts.setNomFilm("josephine");
 			
 			Contact c = new Contact();
 			c.setNom("toto");
 			c.setPrenom("titi");
 			c.setEmail("toto.titi@mail.com");
 			c.setAdresse(s);
-			Collection <Film> cf = new ArrayList<>();
-			cf.add(f);
+			Collection<Film> cf = new ArrayList<>();
+			cf.add(ml);
+			cf.add(cm);
+			cf.add(ts);
 			c.setFilms(cf);
+		
 			
 			// 4. Persistance de l'objet métier
 			em.persist(c);
+			em.persist(ml);
+			em.persist(cm);
+			em.persist(ts);
 			
 			// 5. Validation de la transaction 
 			tx.commit();
