@@ -6,12 +6,14 @@
     <persistence-unit name="demojpa-pu">
         <properties>
             <property name="hibernate.archive.autodetection" value="class" />
-            <!-- <property name="hibernate.show_sql" value="true" /> -->
+            <!-- pour voir ce qui se passe au niveau de sql -->
+            <property name="hibernate.show_sql" value="true" /> 
             <property name="hibernate.format_sql" value="true" />
  
             <!-- Configuration de la  BDD -->
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/demojpa" />
+            <!--  demojpa correspond au nom de la bdd que l'on doit préalablement créer sur phpMyAdmin -->
             <property name="javax.persistence.jdbc.user" value="root" />
             <property name="javax.persistence.jdbc.password" value="" />
  
