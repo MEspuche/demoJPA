@@ -1,10 +1,15 @@
 package metier;
 
+import java.util.Collection;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -19,10 +24,26 @@ public class Contact {
 	private String prenom;
 	private String email;
 	
-	@ManyToOne
+	
+	@ManyToOne(cascade=CascadeType.PERSIST) //attribut cascade
 	private Adresse adresse;
 	
+	@ManyToMany(mappedBy="contacts",cascade=CascadeType.PERSIST)
+	private Collection<Film> films;
 	
+	
+	
+	
+	public Collection<Film> getFilms() {
+		return films;
+	}
+
+	
+	public void setFilms(Collection<Film> films) {
+		this.films = films;
+	}
+
+
 	public Adresse getAdresse() {
 		return adresse;
 	}
