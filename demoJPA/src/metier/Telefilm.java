@@ -20,8 +20,7 @@ public class Telefilm extends Film {
 	@Override
 	public String toString() {
 		return "Telefilm [chaine=" + chaine + ", getIdFilm()=" + getIdFilm() + ", getNomFilm()=" + getNomFilm()
-				+ ", toString()=" + super.toString() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ "]";
+				+  super.toString() +  "]";
 	}
 	
 	

@@ -20,8 +20,7 @@ public class LongMetrage extends Film {
 	@Override
 	public String toString() {
 		return "LongMetrage [cinema=" + cinema + ", getIdFilm()=" + getIdFilm() + ", getNomFilm()=" + getNomFilm()
-				+ ", toString()=" + super.toString() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ "]";
+				+  super.toString() +  "]";
 	}
 	
 	

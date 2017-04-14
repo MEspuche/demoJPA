@@ -20,8 +20,7 @@ public class CourtMetrage extends Film {
 	@Override
 	public String toString() {
 		return "CourtMetrage [production=" + production + ", getIdFilm()=" + getIdFilm() + ", getNomFilm()="
-				+ getNomFilm() + ", toString()=" + super.toString() + ", getClass()=" + getClass() + ", hashCode()="
-				+ hashCode() + "]";
+				+ getNomFilm() + super.toString() +  "]";
 	}
 
 	
