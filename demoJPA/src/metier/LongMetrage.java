@@ -16,6 +16,13 @@ public class LongMetrage extends Film {
 	public void setCinema(String cinema) {
 		this.cinema = cinema;
 	}
+
+	@Override
+	public String toString() {
+		return "LongMetrage [cinema=" + cinema + ", getIdFilm()=" + getIdFilm() + ", getNomFilm()=" + getNomFilm()
+				+ ", toString()=" + super.toString() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ "]";
+	}
 	
 	
 	

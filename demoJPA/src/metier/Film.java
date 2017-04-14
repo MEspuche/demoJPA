@@ -26,7 +26,7 @@ public abstract class Film {
 	private int idFilm;
 	private String nomFilm;
 	
-	@ManyToMany(cascade=CascadeType.PERSIST)
+	@ManyToMany(mappedBy="films")
 	private Collection<Contact> contacts;
 	
 	

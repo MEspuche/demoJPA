@@ -28,7 +28,7 @@ public class Contact {
 	@ManyToOne(cascade=CascadeType.PERSIST) //attribut cascade
 	private Adresse adresse;
 	
-	@ManyToMany(mappedBy="contacts",cascade=CascadeType.PERSIST)
+	@ManyToMany(cascade=CascadeType.PERSIST)
 	private Collection<Film> films;
 	
 	

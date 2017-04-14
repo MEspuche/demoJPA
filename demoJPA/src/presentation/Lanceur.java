@@ -52,19 +52,37 @@ public class Lanceur {
 			c.setEmail("toto.titi@mail.com");
 			c.setAdresse(s);
 			Collection<Film> cf = new ArrayList<>();
-			cf.add(ml);
+			
 			cf.add(cm);
 			cf.add(ts);
 			c.setFilms(cf);
 		
 			
 			// 4. Persistance de l'objet métier
-			em.persist(c);
 			em.persist(ml);
+			em.persist(c);
+			
 			em.persist(cm);
 			em.persist(ts);
 			
 			// 5. Validation de la transaction 
+			tx.commit();
+			
+			//Reuperation du film d'id 1
+			Film f = em.find(Film.class, 1);
+			System.out.println(f);
+			
+			
+			//modification
+			tx.begin();
+			f.setNomFilm("film modifié");
+			em.merge(f);
+			tx.commit();
+			
+			
+			//suppression film
+			tx.begin();
+			em.remove(f);
 			tx.commit();
 			
 			// 6. Fermeture de l'unité de persistance
