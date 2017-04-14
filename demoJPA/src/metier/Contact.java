@@ -5,14 +5,17 @@ import java.util.Collection;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQuery(name="Contact.findAll", query = "SELECT c FROM Contact c")
 public class Contact {
 	
 	
@@ -28,7 +31,7 @@ public class Contact {
 	@ManyToOne(cascade=CascadeType.PERSIST) //attribut cascade
 	private Adresse adresse;
 	
-	@ManyToMany(cascade=CascadeType.PERSIST)
+	@ManyToMany(cascade=CascadeType.PERSIST,fetch=FetchType.LAZY)
 	private Collection<Film> films;
 	
 	
@@ -84,10 +87,14 @@ public class Contact {
 	public Contact() {
 		// TODO Auto-generated constructor stub
 	}
+
+
 	@Override
 	public String toString() {
-		return "Contact [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + "]";
+		return "Contact [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", adresse=" + adresse
+				+ "]";
 	}
+	
 	
 	
 

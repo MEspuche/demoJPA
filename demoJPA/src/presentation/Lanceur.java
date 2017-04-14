@@ -121,6 +121,45 @@ public class Lanceur {
 			System.out.println("\n Recuperation du film d'id2");
 			Film f5 = (Film) em.createQuery("SELECT f FROM Film f WHERE f.idFilm = 2").getSingleResult();
 			System.out.println(f5);
+			
+			//exemple de jointure entre contact et adresse
+			System.out.println("\n Exemple de jointure entre contact et adresse");
+			Query q3 = em.createQuery("SELECT c FROM Contact c left join c.adresse");
+			List<Contact> liste3 = q3.getResultList();
+			for (Contact ct : liste3)
+			{
+				System.out.println(ct);
+			}
+			
+			//Appel d'une requete nommée
+			System.out.println("\n Appel d'une requete nommée");
+			Query q4 = em.createNamedQuery("Contact.findAll");
+			List<Contact> liste4 = q4.getResultList();
+			for (Contact ct2 : liste4)
+			{
+				System.out.println(ct2);
+			}
+			
+			//Appel d'une requete nommée
+			System.out.println("\n Appel d'une requete nommée pour trouver toutes les adresses");
+			Query q5 = em.createNamedQuery("Adresse.findAll");
+			List<Adresse> adresses = q5.getResultList();
+			for (Adresse adresse : adresses)
+			{
+				System.out.println(adresse);
+			}
+			
+			//Appel d'une requete nommée
+			System.out.println("\n Appel d'une requete nommée pour trouver une adresse qui contient la lettre a");
+			Query q6 = em.createNamedQuery("Adresse.findSome");
+			q6.setParameter("ladresse", "%a%");
+			List<Adresse> adresses2 = q6.getResultList();
+			for (Adresse adresse2 : adresses2)
+			{
+				System.out.println(adresse2);
+			}
+			
+			
 			// 6. Fermeture de l'unité de persistance
 			em.close();
 			emf.close();
